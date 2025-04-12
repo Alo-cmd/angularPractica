@@ -75,7 +75,7 @@ export class AppComponent implements OnInit {
 
   }
 
-  updateUser(): void {
+  updateUser(userId: number): void {
 
     if (this.userForm.valid) {
       let data: UserModel = {
@@ -84,11 +84,11 @@ export class AppComponent implements OnInit {
         password: this.userForm.get('password')?.value
       }
 
-      this.usersService.updateUserById(5, data).subscribe({
+      this.usersService.updateUserById(userId, data).subscribe({
         next: (user: UserModel) => {
           console.log(user);
 
-          let index = this.users.findIndex((user: UserModel) => user.id == 5);
+          let index = this.users.findIndex((user: UserModel) => user.id == userId);
 
           if (index !== -1) {
             this.users[index] = user;
@@ -105,12 +105,12 @@ export class AppComponent implements OnInit {
 
   }
 
-  deleteUser(): void {
+  deleteUser(userId: number): void {
 
-    this.usersService.deleteUserById(5).subscribe({
+    this.usersService.deleteUserById(userId).subscribe({
       next: (user: any) => {
         console.log('Usuario eliminado');
-        let index = this.users.findIndex((user: UserModel) => user.id == 5);
+        let index = this.users.findIndex((user: UserModel) => user.id == userId);
         if (index !== -1) {
           this.users.splice(index, 1);
         }

@@ -267,6 +267,10 @@
 <!-- <h1>{{ user.created_at }}</h1>
   <h1>{{ user.updated_at }}</h1> -->
 
+<button type="button" (click)="updateUser(user.id!)">Actualizar usuario</button>
+
+<button type="button" (click)="deleteUser(user.id!)">Eliminar usuario</button>
+
 }
 
 
@@ -282,7 +286,3 @@
   </button>
 
 </form>
-
-<button type="button" (click)="updateUser()">Actualizar usuario</button>
-
-<button type="button" (click)="deleteUser()">Eliminar usuario</button>
