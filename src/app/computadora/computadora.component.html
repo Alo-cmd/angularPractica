@@ -1,0 +1,17 @@
+<router-outlet />
+
+<h2>Computadoras</h2>
+
+<form [formGroup]="computadoraForm" (ngSubmit)="createComputadora()">
+  <input type="text" formControlName="nombre" placeholder="Nombre de la computadora" />
+  <button type="submit">Agregar</button>
+</form>
+
+@for (compu of computadoras; track compu.pk_computadora) {
+  <li>
+    {{ compu.nombre }}
+    <button type="button" (click)="deleteComputadora(compu.pk_computadora!)">Eliminar</button>
+  </li>
+}
+
+
